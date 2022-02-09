@@ -1,0 +1,68 @@
+study,wos.search,sex.studied,season.studied,incl,reason.exclusion.review,number.species,sampling,bird.origin,period,season.test,photoperiod,extraction,chem.analysis,stat.method,stat.test
+Amat et al. 2018,1,1,1,1,,1,G,C,B,comparison br,N,acetone (carotenoid extraction),HPLC,,PERMANOVA
+Amo et al. 2012a,1,1,1,1,,1,G,W,B,comparison br,N,dichloromethane,GC-MS,PCA,PERMANOVA
+Azzani et al. 2016,0,1,1,1,,1,G,W,B,date br,N,ethyl acetate,GC-FID,Euclidean resemblance matrix,"PERMANOVA, CAP"
+Bhattacharyya et al. 1995,1,0,1,1,,1,G (dead),W,"B, NB",year-round,N,methanol and chloroform,TLC,mixture,no test (descriptive)
+Bisson et al. 2009,0,0,1,0,no chemical composition (microbiota),1,F,W,"B, NB",comparison br vs nonbr,N,,,,
+Bonadonna et al. 2007,0,1,0,1,,1,F (close to gland),W,B,,N,dichloromethane,"GC-MS, GC-FID","PCA, MCA",ANOVA
+Burger et al 2004,0,1,0,1,,1,G,W,NA,,N,"SPME, dichloromethane","GC-MS, GC-FID, EI-MS",,
+Díez-Fernández et al. 2020,0,1,0,0,juvenile birds,1,G,W,NA,,N,hexane,GC-MS,Euclidean resemblance matrix,PERMANOVA
+Díez-Fernández et al. 2021,1,1,1,1,,1,G,W,B,date br,N,,GC-MS,Euclidean resemblance matrix,PERMANOVA
+Douglas et al. 2006,0,1,0,0,no preen oil or feathers close to gland (headspace live bird),1,live bird (headspace),W,B,,N,,GC-MS,,
+Fischer et al. 2017,1,1,1,1,,1,G,W,"B, NB",comparison br vs nonbr,N,ethyl acetate,"TLC, GC-MS, GC-FID",PCA,MANOVA
+Fischer et al. 2020,0,1,0,1,,1,G,W,NB,,N,ethyl acetate,"TLC, GC-MS, GC-FID",PCA,MANOVA
+Fluen 2008 (Master thesis),0,1,1,1,,13,G,W,"B, NB",comparison br vs nonbr,N,ethyl acetate,GC-FID,mean retention time,ANOVA
+Forrette et al. 2018,0,1,1,1,,1,G,W,B,comparison br,N,stir bar sorptive,GC-MS,PCA,PERMANOVA
+Gabirot 2016,1,1,0,1,,1,G,W,B,,N,hexane and dichloromethane,GC-MS,Euclidean resemblance matrix,PERMANOVA
+Gabirot et al. 2018,1,1,0,1,,1,F (close to gland),W,B,,N,thermal desorption,GC-MS,Euclidean resemblance matrix,PERMANOVA
+Grieves et al. 2018,1,1,1,1,,1,G,C,NB,date nonbr,A,chloroform,GC-FID,Bray-Curtis dissimilarities,PERMANOVA
+Grieves et al. 2019a,1,1,0,1,,1,G,W,B,,N,chloroform,GC-FID,Bray-Curtis dissimilarities,ANOSIM
+Grieves et al. 2019c,1,1,1,1,,1,G,W,"B, NB",comparison br vs nonbr,N,chloroform,"GC-MS, GC-FID",Bray-Curtis dissimilarities,ANOSIM
+Grieves et al. 2020,1,1,1,1,,1,G,C,B,comparison br,A,chloroform,GC-FID,Bray-Curtis dissimilarities,PERMANOVA
+Hagelin et al. 2003,0,1,1,0,feathers (not close to gland),1,F,WC,"B, NB",comparison br vs nonbr,N,,"GC-MS, EI-MS",,
+Haribal et al. 2005,1,0,1,1,,5,G,W,"B, NB",comparison br vs nonbr,N,methanol and dichloromethane,GC-MS,,no test (descriptive)
+Haribal et al. 2011,1,0,1,1,,1,G,C,"B, NB",year-round,N,methanol and dichloromethane,GC-MS,,GzLM
+Jacob et al. 1979,1,1,1,1,,1,G,C,"B, NB",year-round,N,chloroform,"TLC, GC-MS",individual compounds,
+Jacob et al. 2014,0,1,0,1,,1,G,W,B,,N,hexane and dichloromethane,GC-MS,PCA,LMM
+Jennings et al. 2020,1,1,0,1,,1,F (close to gland),W,B,,N,stir bar sorptive,GC-MS,Euclidean resemblance matrix,"PERNANOVA, CAP"
+Kanakri 2016,0,1,0,0,juvenile birds,1,G (dead),C,NA,,NA,,,,
+Kolattukudy et al. 1985,0,0,1,1,,1,G,C,"B, NB",year-round,N,chloroform,"TLC, GC-MS",individual compounds,no test (descriptive)
+Kolattukudy et al. 1987,1,0,1,1,,1,G,C,"B, NB",year-round,N,chloroform,"TLC, GC-MS",individual compounds,no test (descriptive)
+Leclaire et al. 2011,1,1,1,1,,1,GF (close to gland),W,B,date br,N,chloroform,"GC-FID, GC-MS",Euclidean resemblance matrix,MANOVA
+Leclaire et al. 2019,1,1,0,0,feathers (not close to gland),1,F,C,NA,,N,SPME,GC-MS,PCA,MANOVA
+Livezey et al. 1986,0,1,0,1,,1,G (dead),W,B,,N,Me2CO,"TLC, GC-MS",PCA,ANOVA
+Lopez-Perea et al. 2019,1,1,1,1,,1,G,W,"B, NB",comparison br vs nonbr,N,hexane,"GC-MS, EI-MS",PCA,GzLM
+Mardon et al. 2010,1,1,0,1,,2,G,W,B,,N,n-hexane and dichloromethane,GC-MS,Euclidean resemblance matrix,"PERMANOVA, CAP"
+Mardon et al. 2011,1,1,0,1,,1,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Martin-Vivaldi et al. 2009,1,1,1,1,,1,G,W,B,comparison br,N,,colour table,,GLzM
+Martin-Vivaldi et al. 2010,0,0,0,0,no season nor sex differences studied,1,G,W,B,,N,dichloromethane,GC-MS,,
+Mihailova 2014 (PhD thesis),0,1,1,1,,1,F (close to preen gland),W,"B, NB",year-round,N,SPME,GC-MS,"individual compounds, shannon and gini indices",GzLM
+Montalti et al. 2005,1,1,0,1,,1,G (dead),C,NB,,N,methanol and chloroform,GC-MS,individual compounds,one-way ANOVA
+Pan et al. 1979,1,1,1,0,juvenile birds,1,G,C,"B, NB",comparison br vs nonbr,N,methanol and chloroform,GC-MS,individual compounds,"Duncan's
+New Multiple Range Test"
+Piersma et al. 1999,1,0,1,1,,1,G,WC,"B, NB",comparison br,N,ethyl acetate,"GC-MS, GC-MS-MS, EI-MS",mixture,no test (descriptive)
+Potier et al. 2018,1,1,1,1,,1,G,C,"B, NB",comparison br vs nonbr,N,dichloromethane,GC-MS,Euclidean resemblance matrix,PERMANOVA
+Rasmussen 2013,0,1,0,1,,7,G,W,B,,N,ethyl acetate,GC-MS,PCA,discriminant analysis
+Reneerkens et al. 2002,1,1,1,1,,19,G,W,"B, NB",year-round,N,ethyl acetate,GC-MS,diester score,no test (descriptive)
+Reneerkens et al. 2006,0,0,1,1,,7,G,W,"B, NB",year-round,N,ethyl acetate,GC-MS,diester score,no test (descriptive)
+Reneerkens et al. 2007a,1,1,1,1,,7,G,W,B,comparison br vs nonbr,N,ethyl acetate,GC-MS,individual compounds,GzLM
+Reneerkenset al. 2007b,1,1,1,1,,1,G,WC,"B, NB",year-round,N,ethyl acetate,GC-MS,individual compounds,t-test
+Rodriguez-Ruano 2018,1,1,1,0,no chemical composition (microbiota),1,G,WC,"B, NB",comparison br vs nonbr,N,,,,
+Salibian et al. 2009,0,1,0,0,no chemical composition (gland size),1,G,W,NB,,N,,,,
+Shaw et al. 2011,1,1,1,1,,1,G,W,"B, NB",comparison br vs nonbr,N,"SPME, dichloromethane",GC-MS,PCA,MANOVA
+Sinninghe Damste et al. 2000,0,0,1,1,,1,G,WC,"B, NB",year-round,N,ethyl acetate,"GC-MS, GC-MS-MS, EI-MS",mixture,no test (descriptive)
+Soini et al. 2007,1,1,1,1,,1,GF,C,"B, NB",comparison br vs nonbr,A,stir bar sorptive,"GC-MS, GC-AED",individual compounds,Mann–Whitney U test
+Thomas et al.2010,0,0,1,1,,1,GF,WC,"B, NB",comparison br vs nonbr,N,ethyl acetate and chloroform,"TLC, GC-MS, GC-FID",individual compounds,ANOVA
+Tuttle et al. 2014,1,1,1,1,,1,G,C,"B, NB",comparison br vs nonbr,A,stir bar sorptive,GC-MS,PCA,"MANOVA, nonparametric Wilcoxon-signed rank test"
+Van Huynh et al. 2019,1,1,1,1,,2,G,W,"B, NB",year-round,N,dichloromethane,GC-MS,PCA,MANOVA
+Whelan et al. 2010,1,1,1,1,,1,G (dead),C,"B, NB",comparison br vs nonbr,A,SPME,GC-MS,individual compounds,Kruskal Wallace ANOVA
+Whittaker et al. 2010,1,1,0,1,,1,G,C,B,,A,stir bar sorptive,"GC-MS, GC-AED",PCA,MANOVA
+Whittaker et al. 2011,1,1,1,1,,1,G,W,B,comparison br,N,stir bar sorptive,GC-MS,,MANOVA
+Whittaker et al. 2013,1,1,0,1,,1,G,W,B,,N,stir bar sorptive,GC-MS,PCA,one-way ANOVA
+Whittaker et al. 2016,1,1,0,1,,1,G,W,NB,,N,stir bar sorptive,GC-MS,,"nonparametric MANOVA, ANOSIM"
+Whittaker et al. 2018,1,1,0,1,,1,G,W,B,,N,stir bar sorptive,GC-MS,PCA,t-test
+Whittaker et al. 2019,1,1,1,1,,1,G,W,B,date br,N,stir bar sorptive,GC-MS,PCA,
+Zhang et al. 2009,0,1,0,1,,1,GF (dead),C,B,,N,dichloromethane,GC-MS,individual compounds,"t-test, Mann–Whitney U test"
+Zhang et al. 2010,1,1,0,1,,1,GF,C,B,,N,dichloromethane,GC-MS,individual compounds,"2-tailed t-test, Mann–Whitney U test"
+Zhang et al. 2013,1,1,0,1,,2,GF,C,B,,A,dichloromethane,GC-MS,PCA,MANOVA
+Zhang et al. in Zhang et al. 2013 (unpublished data),0,1,0,0,unpublished data,1,NA,NA,NA,,NA,NA,NA,NA,NA

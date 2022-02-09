@@ -1,0 +1,117 @@
+order,species,phylo,sex,seasonalchange,incubation,timescale,nest,study
+Accipitriformes,Black kite,Milvus_migrans,1,1,1,1,0,Potier et al. 2018
+Accipitriformes,Black kite,Milvus_migrans,0,1,0,1,0,Potier et al. 2018
+Anseriformes,Mallard,Anas_platyrhynchos,1,1,1,1,1,Jacob et al. 1979
+Anseriformes,Mallard,Anas_platyrhynchos,0,0,0,1,1,Jacob et al. 1979
+Anseriformes,Mallard,Anas_platyrhynchos,0,1,0,1,1,Kolattukudy et al. 1985
+Anseriformes,Mallard,Anas_platyrhynchos,1,1,1,1,1,Kolattukudy et al. 1987
+Bucerotiformes,Eurasian hoopoe,Upupa_epops,1,1,1,0,0,Martin-Vivaldi et al. 2009
+Bucerotiformes,Eurasian hoopoe,Upupa_epops,0,0,0,0,0,Martin-Vivaldi et al. 2009
+Charadriiformes,Herring gull,Larus_argentatus,1,1,1,1,1,Fischer et al. 2017
+Charadriiformes,Herring gull,Larus_argentatus,0,1,1,1,1,Fischer et al. 2017
+Charadriiformes,Black-legged kittiwake,Rissa_tridactyla,1,1,1,0,0,Leclaire et al. 2011
+Charadriiformes,Black-legged kittiwake,Rissa_tridactyla,0,0,1,0,0,Leclaire et al. 2011
+Charadriiformes,Red knot,Calidris_canutus,NA,1,NA,1,1,Piersma et al. 1999
+Charadriiformes,Asian dowitcher,Limnodromus_semipalmatus,1,1,1,1,1,Reneerkens et al. 2002
+Charadriiformes,Asian dowitcher,Limnodromus_semipalmatus,0,1,1,1,1,Reneerkens et al. 2002
+Charadriiformes,Baird's sandpiper,Calidris_bairdii,NA,1,NA,1,1,Reneerkens et al. 2002
+Charadriiformes,Bar-tailed godwit,Limosa_lapponica,NA,1,NA,1,1,Reneerkens et al. 2002
+Charadriiformes,Black-tailed godwit,Limosa_limosa,1,1,1,1,1,Reneerkens et al. 2002
+Charadriiformes,Black-tailed godwit,Limosa_limosa,0,1,1,1,1,Reneerkens et al. 2002
+Charadriiformes,Curlew sandpiper,Calidris_ferruginea,1,1,1,1,1,Reneerkens et al. 2002
+Charadriiformes,Curlew sandpiper,Calidris_ferruginea,0,0,0,1,1,Reneerkens et al. 2002
+Charadriiformes,Dunlin,Calidris_alpina,1,1,1,1,1,Reneerkens et al. 2002
+Charadriiformes,Dunlin,Calidris_alpina,0,1,1,1,1,Reneerkens et al. 2002
+Charadriiformes,Hudsonian godwit,Limosa_haemastica,NA,1,NA,1,1,Reneerkens et al. 2002
+Charadriiformes,Little stint,Calidris_minuta,1,1,1,1,1,Reneerkens et al. 2002
+Charadriiformes,Little stint,Calidris_minuta,0,1,1,1,1,Reneerkens et al. 2002
+Charadriiformes,Redshank,Tringa_totanus,1,1,1,1,1,Reneerkens et al. 2002
+Charadriiformes,Redshank,Tringa_totanus,0,1,1,1,1,Reneerkens et al. 2002
+Charadriiformes,Ruddy turnstone,Arenaria_interpres,1,1,1,1,1,Reneerkens et al. 2002
+Charadriiformes,Ruddy turnstone,Arenaria_interpres,0,1,1,1,1,Reneerkens et al. 2002
+Charadriiformes,Ruff,Philomachus_pugnax,1,1,1,1,1,Reneerkens et al. 2002
+Charadriiformes,Ruff,Philomachus_pugnax,0,0,0,1,1,Reneerkens et al. 2002
+Charadriiformes,Sanderling,Calidris_alba,NA,1,NA,1,1,Reneerkens et al. 2002
+Charadriiformes,Semipalmated sandpiper,Calidris_pusilla,NA,1,NA,1,1,Reneerkens et al. 2002
+Charadriiformes,Short-billed dowitcher,Limnodromus_griseus,1,1,1,1,1,Reneerkens et al. 2002
+Charadriiformes,Short-billed dowitcher,Limnodromus_griseus,0,1,1,1,1,Reneerkens et al. 2002
+Charadriiformes,Western sandpiper,Calidris_mauri,1,1,1,1,1,Reneerkens et al. 2002
+Charadriiformes,Western sandpiper,Calidris_mauri,0,1,1,1,1,Reneerkens et al. 2002
+Charadriiformes,White-rumped sandpiper,Calidris_fuscicollis,NA,1,NA,1,1,Reneerkens et al. 2002
+Charadriiforme,Eurasian oystercatcher,Haematiopus_ostralegus,NA,1,NA,1,1,Reneerkens et al. 2006
+Charadriiforme,European golden-plover,Pluvialis_apricaria,NA,1,NA,1,1,Reneerkens et al. 2006
+Charadriiforme,Pacific golden-plover,Pluvialis_fulva,NA,1,NA,1,1,Reneerkens et al. 2006
+Charadriiforme,American golden-plover,Pluvialis_dominica,NA,1,NA,1,1,Reneerkens et al. 2006
+Charadriiforme,Black-bellied plover,Pluvialis_squatarola,NA,1,NA,1,1,Reneerkens et al. 2006
+Charadriiforme,Common ringed plover,Charadrius_hiaticula,NA,1,NA,1,1,Reneerkens et al. 2006
+Charadriiforme,Semipalmated plover,Charadrius_semipalmatus,NA,1,NA,1,1,Reneerkens et al. 2006
+Charadriiformes,Buff-breasted sandpiper,Tryngites_subruficollis,1,1,1,0,1,Reneerkens et al. 2007a
+Charadriiformes,Buff-breasted sandpiper,Tryngites_subruficollis,0,0,0,0,1,Reneerkens et al. 2007a
+Charadriiformes,Red phalarope,Phalaropus_fulicarius,1,0,0,0,1,Reneerkens et al. 2007a
+Charadriiformes,Red phalarope,Phalaropus_fulicarius,0,1,1,0,1,Reneerkens et al. 2007a
+Charadriiformes,Temminck's stint,Calidris_temminckii,1,1,1,0,1,Reneerkens et al. 2007a
+Charadriiformes,Temminck's stint,Calidris_temminckii,0,1,1,0,1,Reneerkens et al. 2007a
+Charadriiformes,Red knot,Calidris_canutus,1,1,1,1,1,Reneerkens et al. 2007b
+Charadriiformes,Red knot,Calidris_canutus,0,1,1,1,1,Reneerkens et al. 2007b
+Charadriiformes,Red knot,Calidris_canutus,NA,1,NA,1,1,Sinninghe Damste et al. 2000
+Gruiformes,Common moorhen,Gallinula_chloropus,1,1,1,1,1,Lopez-Perea et al. 2019
+Gruiformes,Common moorhen,Gallinula_chloropus,0,1,1,1,1,Lopez-Perea et al. 2019
+Passeriformes,Spotless starling,Sturnus_unicolor,1,1,1,0,0,Amo et al. 2012
+Passeriformes,Spotless starling,Sturnus_unicolor,0,1,0,0,0,Amo et al. 2012
+Passeriformes,Silvereye,Zosterops_lateralis,1,0,1,0,0,Azzani et al. 2016
+Passeriformes,Silvereye,Zosterops_lateralis,0,0,1,0,0,Azzani et al. 2016
+Passeriformes,Red-vented bulbul,Pycnonotus_cafer,0,1,1,1,1,Bhattacharyya et al. 1995
+Passeriformes,Eurasian blackbird,Turdus_merula,NA,0,NA,0,0,Díez-Fernández et al. 2021
+Passeriformes,Eurasian blackbird,Turdus_merula,1,1,1,1,0,Fluen 2008 (Master thesis)
+Passeriformes,Eurasian blackbird,Turdus_merula,0,1,0,1,0,Fluen 2008 (Master thesis)
+Passeriformes,Chaffinch,Fringilla_coelebs,1,1,1,1,0,Fluen 2008 (Master thesis)
+Passeriformes,Chaffinch,Fringilla_coelebs,0,1,0,1,0,Fluen 2008 (Master thesis)
+Passeriformes,Dunnock,Prunella_modularis,1,1,1,1,0,Fluen 2008 (Master thesis)
+Passeriformes,Dunnock,Prunella_modularis,0,1,0,1,0,Fluen 2008 (Master thesis)
+Passeriformes,European goldfinch,Carduelis_carduelis,1,1,1,1,0,Fluen 2008 (Master thesis)
+Passeriformes,European goldfinch,Carduelis_carduelis,0,1,0,1,0,Fluen 2008 (Master thesis)
+Passeriformes,European greenfinch,Carduelis_chloris,1,1,1,1,0,Fluen 2008 (Master thesis)
+Passeriformes,European greenfinch,Carduelis_chloris,0,1,0,1,0,Fluen 2008 (Master thesis)
+Passeriformes,House sparrow,Passer_domesticus,1,1,1,1,0,Fluen 2008 (Master thesis)
+Passeriformes,House sparrow,Passer_domesticus,0,1,1,1,0,Fluen 2008 (Master thesis)
+Passeriformes,New Zealand Bellbird,Anthornis_melanura,1,0,1,1,0,Fluen 2008 (Master thesis)
+Passeriformes,New Zealand Bellbird,Anthornis_melanura,0,0,0,1,0,Fluen 2008 (Master thesis)
+Passeriformes,New Zealand Fantail,Rhipidura_fuliginosa,1,1,1,1,0,Fluen 2008 (Master thesis)
+Passeriformes,New Zealand Fantail,Rhipidura_fuliginosa,0,1,1,1,0,Fluen 2008 (Master thesis)
+Passeriformes,Redpoll,Carduelis_flammea,1,1,1,1,0,Fluen 2008 (Master thesis)
+Passeriformes,Redpoll,Carduelis_flammea,0,1,0,1,0,Fluen 2008 (Master thesis)
+Passeriformes,Silvereye,Zosterops_lateralis,1,1,1,1,0,Fluen 2008 (Master thesis)
+Passeriformes,Silvereye,Zosterops_lateralis,0,1,1,1,0,Fluen 2008 (Master thesis)
+Passeriformes,South Island robin,Petroica_australis,1,1,1,1,0,Fluen 2008 (Master thesis)
+Passeriformes,South Island robin,Petroica_australis,0,1,0,1,0,Fluen 2008 (Master thesis)
+Passeriformes,South Island saddleback,Philesturnus_carunculatus,1,0,1,1,0,Fluen 2008 (Master thesis)
+Passeriformes,South Island saddleback,Philesturnus_carunculatus,0,0,0,1,0,Fluen 2008 (Master thesis)
+Passeriformes,Yellowhammer,Emberiza_citrinella,1,1,1,1,0,Fluen 2008 (Master thesis)
+Passeriformes,Yellowhammer,Emberiza_citrinella,0,1,0,1,0,Fluen 2008 (Master thesis)
+Passeriformes,Song sparrow,Melospiza_melodia,NA,1,NA,0,1,Grieves et al. 2018
+Passeriformes,Song sparrow,Melospiza_melodia,1,1,1,1,1,Grieves et al. 2019c
+Passeriformes,Song sparrow,Melospiza_melodia,0,1,0,1,1,Grieves et al. 2019c
+Passeriformes,American goldfinch,Carduelis_tristis,NA,1,NA,1,0,Haribal et al. 2005
+Passeriformes,Blue jay,Cyanocitta_cristata,NA,1,NA,1,0,Haribal et al. 2005
+Passeriformes,House finch,Carpodacus_mexicanus,NA,1,NA,1,0,Haribal et al. 2005
+Passeriformes,Song sparrow,Melospiza_melodia,NA,1,NA,1,1,Haribal et al. 2005
+Passeriformes,White-throated sparrow,Zonotrichia_albicollis,NA,1,NA,1,1,Haribal et al. 2005
+Passeriformes,House finch,Carpodacus_mexicanus,NA,1,NA,1,0,Haribal et al. 2011
+Passeriformes,Gray catbird,Dumetella_carolinensis,1,1,1,1,0,Shaw et al. 2011
+Passeriformes,Gray catbird,Dumetella_carolinensis,0,1,0,1,0,Shaw et al. 2011
+Passeriformes,Dark-eyed junco,Junco_hyemalis,1,1,1,1,1,Soini et al. 2007
+Passeriformes,Dark-eyed junco,Junco_hyemalis,0,0,1,1,1,Soini et al. 2007
+Passeriformes,White-throated sparrow,Zonotrichia_albicollis,NA,1,NA,1,1,Thomas et al.2010
+Passeriformes,White-throated sparrow,Zonotrichia_albicollis,0,1,0,1,1,Tuttle et al. 2014
+Passeriformes,White-throated sparrow,Zonotrichia_albicollis,1,1,1,0,1,Forrette et al. 2018
+Passeriformes,Black-capped chickadee,Parus_atricapillus,1,1,1,1,0,Van Huynh et al. 2019
+Passeriformes,Black-capped chickadee,Parus_atricapillus,0,1,0,1,0,Van Huynh et al. 2019
+Passeriformes,Carolina chickadee,Parus_carolinensis,1,1,1,1,0,Van Huynh et al. 2019
+Passeriformes,Carolina chickadee,Parus_carolinensis,0,1,0,1,0,Van Huynh et al. 2019
+Passeriformes,Gray catbird,Dumetella_carolinensis,0,1,0,1,0,Whelan et al. 2010
+Passeriformes,Dark-eyed junco,Junco_hyemalis,1,1,1,0,1,Whittaker et al. 2011
+Passeriformes,Dark-eyed junco,Junco_hyemalis,0,1,0,0,1,Whittaker et al. 2011
+Passeriformes,Lance-tailed manakin,Chiroxiphia_lanceolata,1,1,1,0,0,Whittaker et al. 2019
+Passeriformes,Lance-tailed manakin,Chiroxiphia_lanceolata,0,1,0,0,0,Whittaker et al. 2019
+Phoenicopteriformes,Greater flamingo,Phoenicopterus_roseus,NA,1,NA,0,1,Amat et al. 2018
+Psittaciformes,Crimson rosella,Platycercus_elegans,0,1,0,1,0,Mihailova 2014 (PhD thesis)

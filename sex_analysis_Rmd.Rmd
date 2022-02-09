@@ -1,0 +1,455 @@
+---
+title: |
+  | Olfactory camouflage and communication in birds
+  |
+  | R code for the comparative analysis 
+  | on sex differences in preen oil composition
+author: "*L.A. Grieves, M. Gilles, I.C. Cuthill, T. Székely, E.A. MacDougall-Shackleton, B.A. Caspers*"
+output: 
+  pdf_document: 
+    toc: true # to generate a table of contents
+    toc_depth: 3  # upto three depths of headings (specified by #, ## and ###)
+    number_sections: true  ## if you want number sections at each table header
+    latex_engine: xelatex
+  html_document: default
+header-includes: 
+ \usepackage{float}
+ \floatplacement{figure}{H}
+---
+
+```{r global-options, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE) # settings for the whole documents: no message and no warning will be displayed
+```
+
+>
+
+>
+
+>
+
+Required packages
+
+```{r results='hide'}
+library(ape)
+library(MCMCglmm)
+library(coda)
+library(plotMCMC)
+```
+
+
+# Data
+
+```{r, echo=FALSE}
+# Set working directory
+setwd("C:/Users/localadmin/Documents/PhD SMELLY PLOVERS/Review/Collaborative review/sex differences/analysis")
+```
+
+## Data on sex differences
+
+Import data
+```{r}
+df <- read.csv("data_sex.csv")
+```
+
+Sample size = number of occurences (1 occurence = 1 season for a species)
+```{r}
+nrow(df)
+```
+
+Number of occurences in each category of each variable
+```{r}
+ss.sex <- data.frame(table(df$SexDiff)["0"],table(df$SexDiff)["1"])
+colnames(ss.sex) <- c("no","yes")
+rownames(ss.sex) <- c("sex difference")
+ss.sex
+
+ss.inc <- data.frame(table(df$Inc)["0"],table(df$Inc)["1"])
+colnames(ss.inc) <- c("biparental","uniparental")
+rownames(ss.inc) <- c("incubation type")
+ss.inc
+
+ss.season <- data.frame(table(df$Season)["0"],table(df$Season)["1"])
+colnames(ss.season) <- c("nonbreeding","breeding")
+rownames(ss.season) <- c("season")
+ss.season
+```
+
+Number of species
+```{r}
+length(unique(df$Species))
+```
+
+Number of studies
+```{r}
+length(unique(df$Study))
+```
+
+
+## Phylogenetic data
+
+Import phylogenetic data
+
+```{r, results='hide'}
+# birdtree.org, 1000 trees, from source: Stage2 MayrAll Hackett
+tree <- read.nexus("data_phylo.nex") 
+# this tree contains all species included in the review
+class(tree)
+```
+
+Build consensus tree
+
+```{r, results='hide'}
+# Concensus tree: given a series of trees, this function returns the consensus tree. 
+# By default, the strict-consensus tree is computed. 
+# To get the majority-rule consensus tree, use p = 0.5. 
+# Any value between 0.5 and 1 can be used.
+consensustree <- consensus(tree, p = 0.5, check.labels = TRUE)
+class(consensustree)
+
+# Check that the tree covers all the species
+species <- df$Phylo
+setdiff(species, as.character(consensustree$tip.label)) 
+# 0 species listed in our data but not in the tree
+setdiff(as.character(consensustree$tip.label),species) 
+# species listed in the tree but not in our data (df = data with sex differences)
+
+# Trim tree to have only species where sex differences are known
+subtree <- drop.tip(consensustree, tip=setdiff(consensustree$tip.label,df$Phylo))
+
+# Check that the tree covers all the species
+setdiff(species, as.character(subtree$tip.label)) 
+# 0 species listed in our data but not in the tree
+setdiff(as.character(subtree$tip.label),species) 
+# 0 species listed in the tree but not in our data
+
+# Dealing with polytomies
+is.binary.tree(subtree) # FALSE > there are some polytomies
+subtree_random <- multi2di(subtree,random=TRUE) 
+# randomization approach to take care of the polytomies
+is.binary.tree(subtree_random) # TRUE > no more polytomies
+
+```
+
+> Some name synonyms had to be fixed to match the list of bird tree: Poecile > Parus, Chlorus > Carduelis, Acanthis > Carduelis
+NB: Cory's shearwater (*Calonectris borealis*) is considered a subspecies of Scopoli's shearwater (*C. diomedea*) by some authors. In birdtree.org Cory's shearwater (*Calonectris borealis*) is absent, so we used the name of Scopoli's shearwater (i.e. Calonectris diomedea) as they are phylogenetically close/equivalent
+
+Plot tree
+
+```{r}
+# Plot tree
+plot(subtree_random, cex=.7, label.offset =.1, no.margin = TRUE)
+```
+
+Get phylogenetic matrix
+
+```{r results='hide'}
+# Compute branch lengths of tree
+phylo_branch <- compute.brlen(subtree_random, method = "Grafen", power = 1)
+
+# Check tree is ultrametric
+is.ultrametric(phylo_branch)
+
+# Calculate the inverse of the matrix of phylogenetic relatedness (to be used in MCMCglmm)
+inv.phylo <- inverseA(phylo_branch,nodes="TIPS",scale=TRUE)
+```
+
+
+# MCMCglmm
+
+## Prior
+
+Because we have no a priori belief on the value of the parameter, we set a weakly informative prior (inverse-gamma)
+
+```{r}
+prior2 <- list(G = list(G1 = list(V = 1, n = 0.002), 
+                        G2 = list(V = 1, n = 0.002)), 
+                        R = list(V = 1, n = 0.002))
+```
+
+
+## Model
+
+Model parameters: burnin and thin should be big enough to get rid of autocorrelation and ensure convergence, nitt should be big enough to have sufficient sample size (nitt-burnin/thin >=1000).
+
+```{r, cache=TRUE}
+# Model 1
+mcmc1 <- MCMCglmm(SexDiff ~ Season + Inc, 
+                  random = ~Phylo+Species,
+                  family = "categorical", 
+                  data = df, 
+                  prior = prior2, 
+                  ginverse =  list(Phylo = inv.phylo$Ainv),
+                  nitt=10000000,burnin=5000,thin=2000,
+                  verbose = FALSE)
+```
+
+# Model verifications
+
+Diagnostics
+
+```{r}
+raftery.diag(mcmc1) # tells you how many MCMC iterations you need to run for convergence
+```
+
+
+## Check autocorrelation
+
+Check that autocorrelation is low 
+
+```{r}
+autocorr(mcmc1$Sol[,1]) 
+autocorr(mcmc1$VCV)
+```
+
+<.05 after Lag 10000 = low autocorrelation
+
+Visualize autocorrelation 
+
+```{r}
+par(mar=c(5,5,4,4))
+autocorr.plot(mcmc1$Sol[,1]) 
+autocorr.plot(mcmc1$VCV)
+```
+
+Autocorrelation quickly curves to almost nothing.
+
+View traces to make sure there are no patterns of autocorrelation
+
+```{r}
+allChains <- as.mcmc(cbind(mcmc1$Sol,mcmc1$VCV))
+plotTrace(allChains)
+logChain<-log10(mcmc1$VCV)
+plotTrace(logChain)
+```
+
+## Check convergence
+
+Plot trace and density of the inferred intercepts and variances 
+
+```{r}
+par(mar=c(4,4,2,2))
+plot(mcmc1$Sol) # intercept 
+plot(mcmc1$VCV) # variance
+```
+
+Graphs look like a "hairy caterpillar", suggesting good convergence.
+
+
+## Gelman-Rubin statistics
+
+Comparison of the same model run multiple times
+
+Run the same model two more times
+
+```{r, cache=TRUE}
+# Model 2
+mcmc2 <- MCMCglmm(SexDiff ~ Season + Inc, 
+                  random = ~Phylo+Species,
+                  family = "categorical", 
+                  data = df, 
+                  prior = prior2, 
+                  ginverse =  list(Phylo = inv.phylo$Ainv),
+                  nitt=10000000,burnin=5000,thin=2000,
+                  verbose = FALSE)
+
+# Model 3
+mcmc3 <- MCMCglmm(SexDiff ~ Season + Inc, 
+                  random = ~Phylo+Species,
+                  family = "categorical", 
+                  data = df, 
+                  prior = prior2, 
+                  ginverse =  list(Phylo = inv.phylo$Ainv),
+                  nitt=10000000,burnin=5000,thin=2000,
+                  verbose = FALSE)
+```
+
+Compare posterior mode and mean for the three different runs 
+(mean and posterior mode of each model should be similar)
+
+```{r echo=FALSE}
+m1 <- mean(mcmc1$Sol[,1])
+pm1 <- posterior.mode(mcmc1$Sol[,1])
+m2 <- mean(mcmc2$Sol[,1])
+pm2 <- posterior.mode(mcmc2$Sol[,1])
+m3 <- mean(mcmc3$Sol[,1])
+pm3 <-posterior.mode(mcmc3$Sol[,1])
+stat <- c("mean","post.mode")
+mcmc.1 <- c(m1,pm1)
+mcmc.2 <- c(m2,pm2)
+mcmc.3 <- c(m3,pm3)
+data.frame(stat,mcmc.1,mcmc.2,mcmc.3)
+```
+
+Posterior modes and means are similar across runs
+
+Gelman-Rubin statistics (the potential scale reduction factor, PSRF)
+(should be less than 1.1 among chains)
+
+```{r}
+# To check for independent chain posterior convergence
+model.all <- mcmc.list(mcmc1$Sol,mcmc2$Sol,mcmc3$Sol)
+gelman.diag(model.all, confidence = 0.95, transform=FALSE, autoburnin=TRUE)
+```
+
+We can see that these are very close to 1, suggesting good convergence. 
+
+Gelman plots
+
+```{r}
+par(mar=c(3,5,3,2))
+gelman.plot(model.all)
+```
+
+This is also evident when looking at the plot of the values generation per generation as the mixing is very good.
+
+
+# Results
+
+Summary of the three models 
+
+```{r}
+summary(mcmc1)
+summary(mcmc2)
+summary(mcmc3)
+```
+
+The effective sample sizes are all relatively good (higher than the value recommended by the function raftery.diag), both for random and fixed effects.
+
+The three runs give the same results but values differ slightly. The second and third models were run only for verification purposes (Gelman-Rubin statistics). We decide to report only the results of the first model (i.e. mcmc1).
+
+## Fixed effects
+
+Plot the parameter estimates and 95% CIs
+
+```{r echo=FALSE}
+plot.estimates <- function(x) {
+  if (class(x) != "summary.mcmc")
+    x <- summary(x)
+  n <- dim(x$solutions)[1]
+  plot(x$solutions[,1], n:1,
+       yaxt="n", ylab="",
+       xlim=range(max(x$solutions[,3])*1.02, min(x$solutions[,2])*1.02),
+       pch=19,
+       main="Posterior means and 95% credible intervals")
+  grid()
+  axis(2, at=n:1, rownames(x$solutions), las=2)
+  arrows(x$solutions[,2], n:1, x$solutions[,3], n:1, code=0)
+  abline(v=0, lty=2)
+}
+
+par(mar=c(5,6,4,4))
+```
+
+```{r}
+plot.estimates(mcmc1)
+```
+
+
+## Random effects
+
+See below.
+
+
+# Random effects
+
+```{r echo=FALSE}
+par(mfrow=c(1,1)) # Reset the plot panel back to single plots
+```
+
+We included phylogeny and species as random effects. Let's see if they have an effect on the probability to dtect seasonal differences in preen oil composition.
+
+## Posterior distribution
+
+Plot the posterior distribution as a histogram to check for significance and whether it has been well estimated or not. 
+
+```{r}
+par(mfrow = c(1,2),mar = c(6, 6, 2, 2)) # plot panel
+hist(mcmc(mcmc1$VCV)[,"Phylo"]) # non-significant
+hist(mcmc(mcmc1$VCV)[,"Species"]) # non-significant
+```
+
+```{r echo=FALSE}
+par(mfrow=c(1,1)) # Reset the plot panel back to single plots
+```
+
+Posterior distribution is pushed up against 0 for both random effects (phylogenetic relatedness and species), which therefore seem to have little effect on seasonal variation in preen oil composition. Indeed, because variance cannot be zero, if the mean value is pushed up against zero, it reflects a non-significant effect. The large spread of the histogram indicate that the distribution is not well estimated (poor precision).
+
+## Proportion of the total variance explained by the random effects
+
+To evaluate variance explained by the random effects, it is useful to look at the relative proportion of the variance explained by each effect and by the residuals (units)
+
+```{r}
+# Proportion of variance explained by random factors
+rand <- mcmc1$VCV/apply(mcmc1$VCV,1,sum)
+# Get median values (50%) and 95% quantiles
+apply(rand,2,function(c) quantile(c,probs = c(0.025,0.5,0.975)))
+```
+```{r}
+# Get the mean value
+apply(rand,2,mean)
+```
+
+The large confidence intervals confirm the poor precision of the estimates.
+
+## Inclusion of random effects and fit of the model 
+
+Run the different models (phylo only, species only, no random effect) to check if their inclusion in the model improves its fit. Note that a specific prior is built for each model.
+
+Model phylo only
+
+```{r, cache=TRUE}
+prior1 <- list(R=list(V=1,nu=0.002),G=list(G1=list(V=1,nu=0.002)))
+
+mcmc.phylo <- MCMCglmm(SexDiff ~ Season + Inc, 
+                  random = ~Phylo,
+                  family = "categorical", 
+                  data = df, 
+                  prior = prior1, 
+                  ginverse =  list(Phylo = inv.phylo$Ainv),
+                  nitt=10000000,burnin=5000,thin=2000,
+                  verbose = FALSE)
+
+summary(mcmc.phylo)                  
+```
+
+Model species only
+
+```{r, cache=TRUE}
+mcmc.species <- MCMCglmm(SexDiff ~ Season + Inc, 
+                  random = ~Species,
+                  family = "categorical", 
+                  data = df, 
+                  prior = prior1, 
+                  ginverse =  list(Phylo = inv.phylo$Ainv),
+                  nitt=10000000,burnin=5000,thin=2000,
+                  verbose = FALSE)
+summary(mcmc.species) 
+```
+
+Model no random effect
+
+```{r, cache=TRUE}
+prior0 <- list(R=list(V=1,nu=0.002))
+
+mcmc.norandom <- MCMCglmm(SexDiff ~ Season + Inc,
+                  family = "categorical", 
+                  data = df, 
+                  prior = prior0, 
+                  ginverse =  list(Phylo = inv.phylo$Ainv),
+                  nitt=10000000,burnin=5000,thin=2000,
+                  verbose = FALSE)
+
+summary(mcmc.norandom) 
+```
+
+Compare the different models using the Deviance Information Criterion (DIC; lower values are best).
+
+```{r}
+# Compare fit of the models (DIC)
+data.frame(models=c("mcmc.norandom","mcmc.phylo","mcmc.species","mcmc1"),
+           random.effects=c("NA","phylo","species","phylo+species"),
+           DIC=c(mcmc.norandom$DIC,mcmc.phylo$DIC,mcmc.species$DIC,mcmc1$DIC))
+```
+
+Inclusion of both phylogeny and species increases the fit of the model (lower DIC).
+
