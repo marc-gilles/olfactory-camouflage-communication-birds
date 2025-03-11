@@ -6,7 +6,7 @@
 **Related article:** Grieves, L. A., Gilles, M., Cuthill, I. C.,
 Szekely, T., MacDougall-Shackleton, E. A., & Caspers, B. (2022).
 Olfactory camouflage and communication in birds. *Biological Reviews*.
-DOI: <https://doi.org/10.1111/brv.12837>.
+<https://doi.org/10.1111/brv.12837>.
 
 -----
 
